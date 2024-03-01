@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Jeni",
+    "sobrenome": "Placido",
+    "idade": 33,
+    "curso": "Backend"
+  },
+  {
+    "name": "Jeni",
+    "sobrenome": "Placido",
+    "idade": 33,
+    "curso": "Backend"
+  },
+  {
+    "name": "Gui",
+    "sobrenome": "Salzer",
+    "idade": 18,
+    "curso": "Backend"
+  },
+  {
+    "name": "Jeni",
+    "sobrenome": "Placido",
+    "idade": 33,
+    "curso": "Backend"
+  },
+  {
+    "name": "Gui",
+    "sobrenome": "Salzer",
+    "idade": 18,
+    "curso": "Backend"
+  }
+]
