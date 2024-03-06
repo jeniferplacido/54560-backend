@@ -1,0 +1,12 @@
+[
+  {
+    "nomeUsuario": "Jeni",
+    "hashSenha": "3d9b1a78050bb3a27c85eff3e443dde4a3ed7f9681ddc026898bef4ade99d520b9b80e436ff04988b4e1541abda7da0759b756fa7bcb8c9b2d6b4a259db492a3",
+    "salt": "7b7fb22e5e243887c9a5fec7a64e0d35"
+  },
+  {
+    "nomeUsuario": "Gui",
+    "hashSenha": "494ad47a74b74c044772172ee1c52e391a4a4c0d239c1e223c13c685c03f92b15d33b66311faecc4a29a36abfec737ebdd8468ffdd1a9708601be81402b76e92",
+    "salt": "63251e51bba1dcd9e22cce74ca096976"
+  }
+]
