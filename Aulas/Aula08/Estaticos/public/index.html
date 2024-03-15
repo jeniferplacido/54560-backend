@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODERS</title>
+</head>
+<body>
+    <h1>Bem-vindo ao nosso serviço de cadastro de Pets!</h1>
+    <p>Insira os dados do seu animal de estimação:</p>
+    <!-- Formulário para inserir dados do animal de estimação -->
+    <form id="petForm">
+        <label for="name">Nome:</label><br>
+        <!-- Campo de entrada para o nome do animal -->
+        <input type="text" id="name" name="name"><br>
+        <label for="raca">Raça:</label><br>
+        <!-- Campo de entrada para a raça do animal -->
+        <input type="text" id="raca" name="raca"><br>
+        <!-- Botão para adicionar o animal -->
+        <button type="button" onclick="submitForm()">Adicionar</button>
+    </form>
+    <!-- Imagem de exemplo -->
+    <img src="./img/imagem.jpg" alt="CODER">
+
+    <script>
+        // Função para enviar os dados do formulário para a rota /api/pets
+        async function submitForm() {
+            // Obter os valores dos campos nome e raça
+            const name = document.getElementById("name").value;
+            const raca = document.getElementById("raca").value;
+
+            // Verifica se os campos estão preenchidos
+            if (name.trim() === "" || raca.trim() === "") {
+                alert("Por favor, preencha todos os campos.");
+                return;
+            }
+
+            // Criar um objeto com os dados do animal
+            const formData = { name, raca };
+
+            try {
+                // Enviar os dados para a rota /api/pets via método POST
+                const response = await fetch('/api/pets', {
+                    method: 'POST', // Método da requisição
+                    headers: {
+                        'Content-Type': 'application/json' // Tipo de conteúdo
+                    },
+                    body: JSON.stringify(formData) // Converter o objeto para JSON e enviar no corpo da requisição
+                });
+
+                // Verificar se a resposta foi bem-sucedida
+                if (!response.ok) {
+                    throw new Error('Erro ao adicionar o pet.');
+                }
+
+                // Se a resposta foi bem-sucedida, mostrar mensagem de sucesso
+                const responseData = await response.text();
+                console.log("Dados da resposta:", responseData);
+                alert("Pet adicionado com sucesso!");
+            } catch (error) {
+                // Se ocorreu algum erro na requisição, mostrar mensagem de erro
+                console.error("Erro na requisição:", error.message);
+                alert("Ocorreu um erro ao adicionar o pet.");
+            }
+        }
+    </script>
+</body>
+</html>
