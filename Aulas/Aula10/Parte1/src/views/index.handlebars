@@ -1,0 +1,32 @@
+<!-- Define uma seção genérica -->
+<div>
+  <!-- Define um cabeçalho de nível 1 (H1) -->
+  <H1>Tudo certo Coders!</H1>
+</div>
+
+<!-- Inclui o arquivo socket.io.js para utilizar o Socket.IO no cliente -->
+<script src="/socket.io/socket.io.js"></script>
+
+<!-- Início do bloco de script -->
+<script>
+  // Cria uma nova instância de conexão Socket.IO entre o cliente e o servidor
+  const socket = io(); 
+  
+  // Imprime uma mensagem no console do navegador indicando a comunicação via WebSocket
+  console.log("Olá eu estou me comunicando a partir de um websocket!");
+  
+  // Envia uma mensagem para o servidor com o evento 'message'
+  socket.emit('message', 'Olá do cliente'); 
+
+  // Define um ouvinte para o evento 'event_individual' vindo do servidor
+  socket.on('event_individual', (data) => { 
+    // Quando o evento é recebido, imprime os dados associados no console
+    console.log(data);
+  }); 
+  
+  // Define um ouvinte para o evento 'hello' vindo do servidor
+  socket.on('hello', (data) => { 
+    // Quando o evento é recebido, imprime os dados associados no console
+    console.log(data);
+  });
+</script>
