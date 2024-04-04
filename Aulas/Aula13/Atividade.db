@@ -1,0 +1,95 @@
+// Inserir Mais Cinco Documentos na Coleção Escola:
+
+```
+db.alunos.insertMany([
+    { "nome" : "Paulo", "idade" : 25 },
+    { "nome" : "João", "idade" : 22 },
+    { "nome" : "Lúcia", "idade" : 25 },
+    { "nome" : "João", "idade" : 29 },
+    { "nome" : "Fede", "idade" : 35 }
+])
+```
+
+// Listar Todos os Documentos na Coleção do aluno Classificados por Idade Decrescente:
+
+```
+db.alunos.find().sort({ idade: -1 })
+```
+
+// Listar o aluno Mais Jovem:
+
+```
+db.alunos.findOne({}, { _id: 0, nome: 1 }).sort({ idade: 1 })
+```
+
+// Listar o Segundo aluno Mais Jovem:
+
+```
+db.alunos.find({}, { _id: 0, nome: 1 }).sort({ idade: 1 }).skip(1).limit(1)
+```
+
+// Listar alunos Chamados 'John':
+
+```
+db.alunos.find({ nome: 'João' })
+```
+
+// Listar os alunos Chamados 'João' que Têm 29 Anos:
+
+```
+db.alunos.find({ nome: 'João', idade: 29 })
+```
+
+// Listar os alunos Chamados 'Juan' ou 'Lucia':
+
+```
+db.alunos.find({ nome: { $in: ['Juan', 'Lúcia'] } })
+```
+
+// Listar os alunos com Mais de 25 Anos:
+
+```
+db.alunos.find({ idade: { $gt: 25 } })
+```
+
+// Listar Clientes com 25 Anos ou Menos:
+
+```
+db.alunos.find({ idade: { $lte: 25 } })
+```
+
+// Listar os Clientes que NÃO Têm 25 Anos:
+
+```
+db.alunos.find({ idade: { $ne: 25 } })
+```
+
+// Listar Clientes com Idade entre 26 e 35 Anos:
+
+```
+db.alunos.find({ idade: { $gte: 26, $lte: 35 } })
+```
+
+// Atualizar a Idade de Fede para 36 Anos:
+
+```
+db.alunos.updateOne({ nome: 'Fede' }, { $set: { idade: 36 } })
+```
+
+// Atualizar Todas as Idades de 25 a 26 Anos:
+
+```
+db.alunos.updateMany({ idade: 25 }, { $set: { idade: 26 } })
+```
+
+// Apagar os alunos que se Chamam 'João':
+
+```
+db.alunos.deleteMany({ nome: 'João' })
+```
+
+// Eliminar Todos os Documentos dos alunos que Ficaram com Algum Valor:
+
+```
+db.alunos.deleteMany({})
+```
