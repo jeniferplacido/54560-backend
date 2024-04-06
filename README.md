@@ -37,7 +37,7 @@ git clone https://github.com/jeniferplacido/54560-backend.git
 1. Navegue até o diretório clonado:
 
 ```
-cd nome-do-repositorio
+cd 54560-backend
 ```
 
 1. Explore os exemplos de código na pasta `aulas/` e os projetos práticos na pasta `projetos/`.
