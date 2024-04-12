@@ -1,0 +1,177 @@
+{{!< layouts/main}}
+
+<style>
+  /* Estilos CSS para os cards */
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .card {
+    width: 300px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .card-text {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+  }
+
+  .card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .btn-edit {
+    color: #333;
+    background-color: #f0f0f0;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-edit:hover {
+    background-color: #e0e0e0;
+  }
+
+  .btn-delete {
+    color: #fff;
+    background-color: #d32f2f;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-delete:hover {
+    background-color: #b71c1c;
+  }
+
+  /* Estilos para o formulário de adicionar produto */
+  .add-product-form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: #fff;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background-color: #fff; /* Fundo branco para inputs */
+    color: #000; /* Texto preto para inputs */
+  }
+
+  .form-check label {
+    font-weight: normal;
+  }
+
+  .form-check input {
+    margin-right: 5px;
+  }
+
+  .btn-submit {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-submit:hover {
+    background-color: #45a049;
+  }
+</style>
+
+<h1>Produtos</h1>
+
+<div class="card-container">
+  {{#each produtos}}
+  <div class="card">
+    <h2 class="card-title">{{this.nome}}</h2>
+    <p class="card-text">Preço: R$ {{this.preco}}</p>
+    <p class="card-text">Descrição: {{this.descricao}}</p> <!-- Adicionado descrição -->
+    <p class="card-text">Categoria: {{this.categoria}}</p>
+    <div class="card-actions">
+      <a href="/produto/{{this._id}}/editar" class="btn-edit">Editar</a>
+      <form action="/produto/{{this._id}}" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit" class="btn-delete">Excluir</button>
+      </form>
+    </div>
+  </div>
+  {{/each}}
+</div>
+
+<h2>Adicionar Novo Produto</h2>
+<form action="/produto" method="POST" class="add-product-form">
+  <div class="form-group">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required>
+  </div>
+  <div class="form-group">
+    <label for="preco">Preço:</label>
+    <input type="number" id="preco" name="preco" step="0.01" required>
+  </div>
+  <div class="form-group">
+    <label for="descricao">Descrição:</label>
+    <textarea id="descricao" name="descricao" required></textarea>
+  </div>
+  <div class="form-group">
+    <label for="categoria">Categoria:</label>
+    <select id="categoria" name="categoria">
+      <option value="eletronicos">Eletrônicos</option>
+      <option value="vestuario">Vestuário</option>
+      <option value="livros">Livros</option>
+      <option value="alimentos">Alimentos</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <input type="checkbox" id="disponivel" name="disponivel">
+    <label for="disponivel">Disponível</label>
+  </div>
+  <button type="submit" class="btn-submit">Adicionar Produto</button>
+</form>
