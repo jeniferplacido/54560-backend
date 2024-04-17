@@ -39,24 +39,6 @@ const environment = async () => {
 //         { $group: { _id: null, media: { $avg: '$grade' } } }
 //     ]);
 
-//     console.log('Alunos agrupados por classificação (do melhor ao pior):', melhorAtePior[0].alunos);
-//     console.log('Alunos agrupados por grupo:', porGrupo);
-//     console.log('Média dos alunos do grupo 1B:', mediaGrupo1B[0].media);
-//     console.log('Média dos alunos do grupo 1A:', mediaGrupo1A[0].media);
-//     console.log('Média geral dos alunos:', mediaGeral[0].media);
-//     console.log('Média de notas dos homens:', mediaHomens[0].media);
-//     console.log('Média de notas das mulheres:', mediaMulheres[0].media);
-// } catch (err) {
-//     console.error('Erro ao executar consultas:', err);
-// }
-// };
-
-//     try {
-//         const alunos = [
-//             {
-//                 primeiroNome: 'João',
-//                 ultimoNome: 'Silva',
-//                 email: 'joao.silva@example.com',
 //                 genero: 'Masculino',
 //                 grade: 8.5,
 //                 grupo: '1A'
