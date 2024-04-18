@@ -1,0 +1,30 @@
+<h1>Form Cookie Coders</h1>
+    <!-- Formulário para enviar dados para a rota '/cookie' via método POST -->
+    <form action="/cookie" method="post">
+        <!-- Campo de entrada para o nome -->
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        <!-- Campo de entrada para o email -->
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <!-- Botão de envio do formulário -->
+        <button type="submit">Submit</button>
+    </form>
+    <!-- Botão para obter o cookie -->
+    <button id="getCookie">GetCookie</button>
+
+    <!-- Script JavaScript para lidar com a obtenção do cookie -->
+    <script>
+        // Log para indicar que a página foi carregada
+        console.log('Pagina carregada');
+        
+        // Event listener para o botão 'getCookie'
+        document.getElementById('getCookie').addEventListener('click', function() {
+            // Requisição fetch para obter o cookie da rota '/cookie'
+            fetch('/cookie')
+                // Manipulação da resposta da requisição como JSON
+                .then(response => response.json())
+                // Manipulação dos dados recebidos
+                .then(data => console.log(data));
+        });
+    </script>
