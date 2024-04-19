@@ -6,7 +6,7 @@ const path = require("path"); // Importa o módulo path para lidar com caminhos 
 const app = express(); // Cria uma instância do aplicativo Express
 
 // Adiciona o middleware cookie-parser ao aplicativo e define uma chave secreta para assinar os cookies
-app.use(cookieParser('C0d3r')); 
+app.use(cookieParser()); 
 
 // Configura o aplicativo para analisar dados codificados na URL (por exemplo, de formulários)
 app.use(express.urlencoded({ extended: true }));
@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 // Rota GET para configurar um cookie
 app.get('/setCookie', (req, res) => {
     // Define um cookie chamado 'CoderCookie' com uma mensagem e uma opção de assinatura
-    res.cookie('CoderCookie', 'Este é um cookie muito poderoso', { maxAge: 10000, signed: true });
+    res.cookie('CoderCookie', 'Este é um cookie muito poderoso', { maxAge: 1000 });
     res.send('Cookie setado com sucesso!'); // Retorna uma mensagem de sucesso ao cliente
 });
 
