@@ -2,9 +2,16 @@ const express = require('express');
 const router = express.Router();
 const User = require('../model/User');
 const { checkAuthenticated } = require('../middleware/auth');
+const { publico } = require('../middleware/public');
+const { privado } = require('../middleware/private');
+
+// Rota para página de registro (GET)
+router.get('/registro', (req, res) => {
+    res.render('registro'); // Supondo que você tenha um arquivo de modelo chamado 'registro'
+});
 
 // Rota para registrar um novo usuário (POST)
-router.post('/registro', async (req, res) => {
+router.post('/registro',  async (req, res) => {
     try {
         const { primeiro_nome, segundo_nome, email, idade, senha } = req.body;
         const existingUser = await User.findOne({ email });
@@ -13,7 +20,7 @@ router.post('/registro', async (req, res) => {
         }
         const newUser = new User({ primeiro_nome, segundo_nome, email, idade, senha });
         await newUser.save();
-        // Renderiza a página de login após o registro
+        // Redireciona para a página de login após o registro com mensagem
         res.render('login', { message: 'Registro bem-sucedido! Faça login para continuar.' });
     } catch (error) {
         console.error('Erro no registro:', error);
@@ -21,20 +28,14 @@ router.post('/registro', async (req, res) => {
     }
 });
 
-// Rota para obter todos os usuários (GET)
-router.get('/users', checkAuthenticated, async (req, res) => {
-    try {
-        const users = await User.find();
-        // Renderiza a página de usuários com a lista de usuários
-        res.render('users', { users });
-    } catch (error) {
-        console.error('Erro ao buscar usuários:', error);
-        res.status(500).send('Erro interno');
-    }
+// Rota para a página de perfil (GET)
+router.get('/perfil', checkAuthenticated, (req, res) => {
+    const { primeiro_nome, segundo_nome, email, idade } = req.session.user;
+    res.render('perfil', { primeiro_nome, segundo_nome, email, idade });
 });
 
 // Rota para atualizar um usuário (PUT)
-router.put('/users/:id', checkAuthenticated, async (req, res) => {
+router.put('/perfil/:id', checkAuthenticated, async (req, res) => {
     const { id } = req.params;
     const { primeiro_nome, segundo_nome, email, idade, senha } = req.body;
     try {
@@ -48,12 +49,12 @@ router.put('/users/:id', checkAuthenticated, async (req, res) => {
 });
 
 // Rota para excluir um usuário (DELETE)
-router.delete('/users/:id', checkAuthenticated, async (req, res) => {
+router.delete('/perfil/:id', checkAuthenticated, async (req, res) => {
     const { id } = req.params;
     try {
         await User.findByIdAndDelete(id);
-        // Redireciona para a página de usuários após excluir o usuário
-        res.redirect('/users');
+        // Redireciona para a página de perfil após excluir o usuário
+        res.redirect('/perfil');
     } catch (error) {
         console.error('Erro ao excluir usuário:', error);
         res.status(500).send('Erro interno');
@@ -61,5 +62,3 @@ router.delete('/users/:id', checkAuthenticated, async (req, res) => {
 });
 
 module.exports = router;
-
-

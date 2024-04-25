@@ -11,7 +11,8 @@ const app = express();
 app.engine('handlebars', handlebars.engine());
 app.set('view engine', 'handlebars');
 app.set('views', __dirname + '/views'); // Diretório onde estão os arquivos de template Handlebars
-app.use(express.static('public'));
+// Configurar middleware para servir arquivos estáticos
+app.use('/public', express.static(__dirname + '/public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
