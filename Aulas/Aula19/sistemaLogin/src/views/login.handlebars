@@ -1,8 +1,13 @@
-<h1>Login</h1>
-    <form action="/api/sessions/login" method="POST">
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" required><br>
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" required><br>
-        <button type="submit">Entrar</button>
-    </form>
+<div class="login-container">
+    <div class="login-card">
+        <h1>Login</h1>
+        <form action="/login" method="POST">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required><br>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required><br>
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+    <div class="welcome-message">Bem-vindo! Faça login para continuar.</div>
+</div>
