@@ -1,0 +1,174 @@
+/* Reset de estilos para o body */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right, #000000, #a9a9a9);
+    color: #ffffff;
+}
+
+/* Estilos para o container principal do login */
+.login-container {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #000000, #a9a9a9);
+    padding-top: 50px;
+}
+
+/* Estilos para o card de login */
+.login-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    color: #000000;
+    position: relative;
+    z-index: 1;
+}
+
+.login-card h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.login-card input[type="email"],
+.login-card input[type="password"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.login-card button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+}
+
+.login-card button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para a mensagem de boas-vindas */
+.welcome-message {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    color: #ffffff;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+/* Estilos para o container principal do perfil */
+.profile-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+/* Estilos para o perfil do usuário */
+/* Estilos para o card de registro */
+.profile-card {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #000000; /* Cor do texto preto */
+    max-width: 400px; /* Reduzindo o tamanho do card */
+    margin: 50px auto; /* Centralizando o card na tela */
+}
+
+
+.profile-card h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #000000;
+}
+
+.profile-card .profile-info {
+    margin-bottom: 20px;
+}
+
+.profile-card .profile-info p {
+    margin-bottom: 10px;
+    color: #000000; /* Cor do texto preto */
+}
+
+.profile-card .profile-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-top: 20px; /* Espaço acima do botão */
+    box-sizing: border-box; /* Garante que padding não aumente a largura */
+}
+
+.profile-card .profile-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para centralizar o botão dentro do card */
+.profile-card .profile-btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+/* Estilos para o formulário de registro */
+.profile-form {
+    margin-top: 20px;
+}
+
+.profile-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.profile-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.profile-form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.profile-form button:hover {
+    background-color: #0056b3;
+}
+
