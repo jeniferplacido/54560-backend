@@ -1,7 +1,4 @@
-// Importa o módulo 'passport' para autenticação
 const passport = require('passport');
-
-// Importa o módulo 'Strategy' e 'ExtractJwt' do 'passport-jwt' para usar JWT (JSON Web Tokens) na autenticação
 const { Strategy: JWTStrategy, ExtractJwt } = require('passport-jwt');
 
 // Função para extrair o token JWT dos cookies da requisição
@@ -15,14 +12,15 @@ const cookieExtractor = req => {
 
 // Função para inicializar a configuração do passport
 const initializePassport = () => {
-    // Define uma estratégia de autenticação chamada 'jwt' utilizando JWTStrategy
     passport.use('jwt', new JWTStrategy({
-        jwtFromRequest: ExtractJwt.fromExtractors([cookieExtractor]), // Define como extrair o JWT da requisição (neste caso, dos cookies)
-        secretOrKey: 'coderSecret' // Chave secreta utilizada para assinar e verificar os tokens JWT
-    }, async (jwt_payload, done) => { // Função de verificação do token JWT
+        jwtFromRequest: ExtractJwt.fromExtractors([cookieExtractor]),
+        secretOrKey: 'coderSecret'
+    }, async (jwt_payload, done) => {
         try {
-            // Simula a busca do usuário no banco de dados com base no ID presente no JWT
-            const user = user.find(u => u.id === jwt_payload.id);
+            // Aqui você poderia consultar o banco de dados para buscar o usuário com base no ID presente no JWT
+            // Como estamos usando usuários simulados, não é necessário realizar essa consulta
+            // Apenas decodificamos o payload do JWT e passamos o usuário simulado correspondente ao ID
+            const user = { id: jwt_payload.id, email: jwt_payload.email, role: jwt_payload.role };
 
             // Verifica se o usuário foi encontrado
             if (!user) {
@@ -36,13 +34,14 @@ const initializePassport = () => {
     }));
 };
 
-const authorization = (role) =>{
+// Middleware de autorização
+const authorization = (role) => {
     return async (req, res, next) => {
-        if(!req.user) return res.status(401).send('Unauthorized');
-        if(role && role !== req.user.role) return res.status(403).send('Forbidden');
+        if (!req.user) return res.status(401).send('Unauthorized');
+        if (role && role !== req.user.role) return res.status(403).send('Forbidden');
         next();
-    }
-}
+    };
+};
 
-// Exporta a função de inicialização do passport para ser utilizada em outros arquivos
-module.exports = {initializePassport, authorization};
+// Exporta a função de inicialização do passport e o middleware de autorização
+module.exports = { initializePassport, authorization };

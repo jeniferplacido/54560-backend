@@ -28,12 +28,12 @@ const initializePassport = () => {
     }));
 };
 
-// const authorization = (role) =>{
-//     return async (req, res, next) => {
-//         if(!req.user) return rest.status(401).send('Unauthorized');
-//         if(role && role !== req.user.role) return rest.status(403).send('Forbidden');
-//         next();
-//     }
-// }
+const authorization = (role) =>{
+    return async (req, res, next) => {
+        if(!req.user) return rest.status(401).send('Unauthorized');
+        if(role && role !== req.user.role) return rest.status(403).send('Forbidden');
+        next();
+    }
+}
 
 module.exports = initializePassport;
