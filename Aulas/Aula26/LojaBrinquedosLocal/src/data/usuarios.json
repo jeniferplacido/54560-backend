@@ -1,0 +1,16 @@
+[
+  {
+    "nome": "Jeni",
+    "sobrenome": "Jeni",
+    "email": "jeni@email.com",
+    "senha": "123456",
+    "id": "1"
+  },
+  {
+    "nome": "Jen",
+    "sobrenome": "Jen",
+    "email": "jen@email.com",
+    "senha": "1234",
+    "id": "2"
+  }
+]
