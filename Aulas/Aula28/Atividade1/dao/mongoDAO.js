@@ -13,7 +13,7 @@ class MongoDAO extends ContactDAO {
     // Construtor da classe, que conecta ao MongoDB usando mongoose
     constructor() {
         super(); // Chama o construtor da classe pai ContactDAO
-        mongoose.connect('mongodb+srv://jeni:brinquedos@lojabrinq.qn84q3r.mongodb.net/', {});
+        mongoose.connect('URL', {});
         console.log('Conectado ao MongoDB');
     }
 
