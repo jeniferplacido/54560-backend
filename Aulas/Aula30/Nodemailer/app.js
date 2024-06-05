@@ -13,8 +13,8 @@ const transport = nodemailer.createTransport({
     service: 'gmail',
     port: 587,
     auth: {
-        user: 'jenifer.sdti@gmail.com',
-        pass: 'xtai usei urcr bkno'
+        user: '',
+        pass: ''
     }
 });
 
