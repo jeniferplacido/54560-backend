@@ -13,8 +13,8 @@ const transport = nodemailer.createTransport({
     service: 'gmail',
     port: 587,
     auth: {
-        user: '',
-        pass: ''
+        user: 'seu-email', // O email do usuário
+        pass: 'senha-gerada-pelo-gmail' // A senha do usuário
     }
 });
 
