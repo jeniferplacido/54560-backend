@@ -8,7 +8,7 @@ const CustomError = require('../services/errors/CustomError');
 const enums = require('../services/errors/enums');
 
 // Importa a função 'generateUserErrorInfo' do módulo 'info' no diretório 'services/errors'.
-const {generateUserErrorInfo, generateInvalidParamErrorInfo} = require('../services/errors/info');
+const {generateUserErrorInfo} = require('../services/errors/info');
 
 // Cria um array vazio chamado 'users'. Este array provavelmente será usado para armazenar usuários.
 const users = [];
@@ -61,24 +61,6 @@ router.post('/', (req, res, next) => {
     // Envia uma resposta HTTP com o status 'sucess', o payload sendo o usuário e o id do usuário.
     res.send({status:'sucess', payload: user, id: user.id})
 })
-
-router.get('/:uid', (req, res, next) => {
-    const { uid } = req.params;
-    const uidNumber = parseInt(uid, 10);
-
-    if (isNaN(uidNumber) || uidNumber <= 0) {
-        const error = CustomError.createError({
-            name: 'Erro de parâmetro',
-            cause: generateInvalidParamErrorInfo(uid),
-            message: 'Parâmetro fornecido inválido',
-            code: enums.INVALID_PARAM
-        });
-        return next(error);
-    }
-
-    // Lógica para buscar o usuário pelo id
-    res.send({ status: 'success', payload: `Usuário com id ${uid}` });
-});
 
 // Exporta o roteador.
 module.exports = router;

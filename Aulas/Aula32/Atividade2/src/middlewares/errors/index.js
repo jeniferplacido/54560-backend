@@ -14,14 +14,10 @@ module.exports = (error, req, res, next) => {
     switch (error.code) {
         // Se o código do erro for 'INVALID_TYPES_ERROR', envia uma resposta HTTP com o status 400 e uma mensagem de erro.
         case enums.INVALID_TYPES_ERROR:
-            res.status(400).send({status: 'error', error: 'Um ou mais campos obrigatórios não foram preenchidos'});
-            break;
-        // Se o código do erro for 'INVALID_PARAM', envia uma resposta HTTP com o status 400 e uma mensagem de erro.
-        case enums.INVALID_PARAM:
-            res.status(400).send({status: 'error', error: 'Parâmetro inválido fornecido'});
+            res.status(400).send({status: 'error', error: 'Um ou mais campos obrigatórios não foram preenchidos'})
             break;
         // Se o código do erro não for nenhum dos casos acima, envia uma resposta HTTP com o status 500 e uma mensagem de erro.
         default:
-            res.status(500).send({status: 'error', error: 'Erro interno do servidor'});
+            res.status(500).send({status: 'error', error: 'Erro interno do servidor'})
     }
 }
