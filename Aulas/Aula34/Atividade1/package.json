@@ -1,0 +1,15 @@
+{
+  "name": "atividade1",
+  "version": "1.0.0",
+  "description": "Testando logger",
+  "main": "src/app.js",
+  "scripts": {
+    "start:dev": "cross-env NODE_ENV=development nodemon src/app.js",
+    "start:prod": "cross-env NODE_ENV=production node src/app.js"
+  },
+  "author": "Jeni Placido",
+  "license": "MIT",
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "yarn",
+  "version": "1.0.0",
+  "main": "app.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "express": "^4.19.2",
+    "operacoes-mat": "^1.0.1"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "operacoes-mat",
+  "version": "1.0.1",
+  "description": "Pacote para realizar operações matematicas basicas em JS",
+  "main": "operacoes-mat.js",
+  "license": "MIT",
+  "keywords": ["operacoes", "matematica", "soma", "subtracao", "multiplicacao", "divisao"],
+  "author": "Jenifer Plácido"
+}
