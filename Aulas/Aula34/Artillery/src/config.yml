@@ -1,0 +1,39 @@
+config:
+  target: 'http://localhost:8080'
+  plugins:
+    metrics-by-endpoint: {}
+
+phases:
+  - duration: 100
+    arrivalRate: 10
+    rampTo: 200
+
+scenarios:
+  - name: 'Sessão Flow (registro + login)'
+    flow:
+      - log: 'Criamos as variáveis para o usuário teste'
+      - get:
+          url: '/gerar-usuario-teste'  
+      - log: 'Capturando dados do usuário'
+      - capture:
+          as: 'usuario'
+          json: '$.data'
+      - log: 'Cadastrando usuário'  
+      - post:
+          url: '/api/sessao/registrar'  
+          json:
+            nome: '{{usuario.nome}}'
+            sobrenome: '{{usuario.sobrenome}}'
+            email: '{{usuario.email}}'
+            senha: '{{usuario.senha}}'
+      - think: 2
+      - log: 'Login'
+      - post:
+          url: '/api/sessao/login'  
+          json:
+            email: '{{usuario.email}}'
+            senha: '{{usuario.senha}}'
+      - think: 2
+      - log: 'Logout'
+      - post:
+          url: '/api/sessao/logout' 

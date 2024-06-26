@@ -1,0 +1,163 @@
+{
+  "aggregate": {
+    "counters": {
+      "vusers.created_by_name.Sessão Flow (registro + login)": 1,
+      "vusers.created": 1,
+      "http.requests": 1,
+      "http.codes.200": 1,
+      "http.responses": 1,
+      "http.downloaded_bytes": 93,
+      "plugins.metrics-by-endpoint./gerar-usuario-teste.codes.200": 1,
+      "errors.an URL must be specified": 1,
+      "vusers.failed": 1
+    },
+    "rates": {
+      "http.request_rate": 1
+    },
+    "firstCounterAt": 1719356411282,
+    "firstHistogramAt": 1719356411735,
+    "lastCounterAt": 1719356411751,
+    "lastHistogramAt": 1719356411744,
+    "firstMetricAt": 1719356411282,
+    "lastMetricAt": 1719356411751,
+    "period": 1719356410000,
+    "summaries": {
+      "http.response_time": {
+        "min": 334,
+        "max": 334,
+        "count": 1,
+        "mean": 334,
+        "p50": 333.7,
+        "median": 333.7,
+        "p75": 333.7,
+        "p90": 333.7,
+        "p95": 333.7,
+        "p99": 333.7,
+        "p999": 333.7
+      },
+      "plugins.metrics-by-endpoint.response_time./gerar-usuario-teste": {
+        "min": 334,
+        "max": 334,
+        "count": 1,
+        "mean": 334,
+        "p50": 333.7,
+        "median": 333.7,
+        "p75": 333.7,
+        "p90": 333.7,
+        "p95": 333.7,
+        "p99": 333.7,
+        "p999": 333.7
+      }
+    },
+    "histograms": {
+      "http.response_time": {
+        "min": 334,
+        "max": 334,
+        "count": 1,
+        "mean": 334,
+        "p50": 333.7,
+        "median": 333.7,
+        "p75": 333.7,
+        "p90": 333.7,
+        "p95": 333.7,
+        "p99": 333.7,
+        "p999": 333.7
+      },
+      "plugins.metrics-by-endpoint.response_time./gerar-usuario-teste": {
+        "min": 334,
+        "max": 334,
+        "count": 1,
+        "mean": 334,
+        "p50": 333.7,
+        "median": 333.7,
+        "p75": 333.7,
+        "p90": 333.7,
+        "p95": 333.7,
+        "p99": 333.7,
+        "p999": 333.7
+      }
+    }
+  },
+  "intermediate": [
+    {
+      "counters": {
+        "vusers.created_by_name.Sessão Flow (registro + login)": 1,
+        "vusers.created": 1,
+        "http.requests": 1,
+        "http.codes.200": 1,
+        "http.responses": 1,
+        "http.downloaded_bytes": 93,
+        "plugins.metrics-by-endpoint./gerar-usuario-teste.codes.200": 1,
+        "errors.an URL must be specified": 1,
+        "vusers.failed": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1719356411282,
+      "firstHistogramAt": 1719356411735,
+      "lastCounterAt": 1719356411751,
+      "lastHistogramAt": 1719356411744,
+      "firstMetricAt": 1719356411282,
+      "lastMetricAt": 1719356411751,
+      "period": "1719356410000",
+      "summaries": {
+        "http.response_time": {
+          "min": 334,
+          "max": 334,
+          "count": 1,
+          "mean": 334,
+          "p50": 333.7,
+          "median": 333.7,
+          "p75": 333.7,
+          "p90": 333.7,
+          "p95": 333.7,
+          "p99": 333.7,
+          "p999": 333.7
+        },
+        "plugins.metrics-by-endpoint.response_time./gerar-usuario-teste": {
+          "min": 334,
+          "max": 334,
+          "count": 1,
+          "mean": 334,
+          "p50": 333.7,
+          "median": 333.7,
+          "p75": 333.7,
+          "p90": 333.7,
+          "p95": 333.7,
+          "p99": 333.7,
+          "p999": 333.7
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 334,
+          "max": 334,
+          "count": 1,
+          "mean": 334,
+          "p50": 333.7,
+          "median": 333.7,
+          "p75": 333.7,
+          "p90": 333.7,
+          "p95": 333.7,
+          "p99": 333.7,
+          "p999": 333.7
+        },
+        "plugins.metrics-by-endpoint.response_time./gerar-usuario-teste": {
+          "min": 334,
+          "max": 334,
+          "count": 1,
+          "mean": 334,
+          "p50": 333.7,
+          "median": 333.7,
+          "p75": 333.7,
+          "p90": 333.7,
+          "p95": 333.7,
+          "p99": 333.7,
+          "p999": 333.7
+        }
+      }
+    }
+  ]
+}
