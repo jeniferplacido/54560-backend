@@ -1,0 +1,14 @@
+<h1>Produtos</h1>
+    <ul>
+        {{#each products}}
+            <li>
+                {{this.nome}} - R$ {{this.preco}}
+                <form action="/carrinho/add" method="POST">
+                    <input type="hidden" name="productId" value="{{this._id}}">
+                    <input type="number" name="quantity" value="1" min="1">
+                    <button type="submit">Adicionar ao Carrinho</button>
+                </form>
+            </li>
+        {{/each}}
+    </ul>
+    <a href="/carrinho">Ver Carrinho</a>
