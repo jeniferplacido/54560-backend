@@ -1,0 +1,66 @@
+openapi: 3.0.0
+info:
+  title: API de adoção de pets
+  version: "1.0"
+paths:
+  /api/users:
+    get:
+      summary: Listar todos os usuários
+      tags:
+        - Users
+      responses:
+        "200":
+          description: Os usuários foram encontrados
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+        "500":
+          description: Erro interno do servidor
+    post:
+      summary: Cria um novo usuário
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        "201":
+          description: Usuário criado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        "400":
+          description: Erro de validação
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: ID autogerado no mongo
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+          description: Email do usuário
+        password:
+          type: string
+          description: Senha do usuário criptografada
+      example:
+        _id: "5f9b9b9b9b9b9b9b9b9b9b9b"
+        first_name: Jenifer
+        last_name: Placido
+        email: jenifer@jenifer.com
+        password: "12345678": "12345678"
+
+          
